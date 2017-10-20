@@ -4,7 +4,8 @@
   "description": "Everybody has secrets, its time to track them in a centralized way. In this project you will create a full-stack application where users will keep their secrets and keep track of who knows them.",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
   },
   "repository": {
     "type": "git",

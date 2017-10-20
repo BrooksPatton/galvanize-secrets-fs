@@ -1,7 +1,7 @@
 # User stories
 
-* [ ] As a visitor, I want to see the logo of the web application.
-* [ ] As a user, when I click the logo I am taken back to the main page.
+* [x] As a visitor, I want to see the logo of the web application.
+* [x] As a user, when I click the logo I am taken back to the main page.
 * [ ] As a first time visitor, I can see the create account link.
 * [ ] As a first time visitor, when I click on the create account link I am  taken to the create account and login page.
 * [ ] As a returning user, when I click on the login link I am taken to the create account and login page.
