@@ -14,6 +14,13 @@
 					<h1 class="text-center">Galvanize Secrets</h1>
 				</div>
 			</div>
+    	{{#if show.createAccount}}
+				<div class="row">
+					<div class="col">
+						<h3 class="text-center">You must <a href="/create-account">login</a> or <a href="/create-account">create an account</a> to keep secrets.</h3>
+					</div>
+				</div>
+			{{/if}}
 		</div>
 		<script
   src="https://code.jquery.com/jquery-3.2.1.min.js"
