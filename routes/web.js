@@ -1,13 +1,29 @@
 const express = require('express');
+const usersDB = require('../db/users');
 
 const router = express.Router();
 
 router.get('/', (req, res) => {
-	res.render('index', {
-		show: {
-			createAccount: true
-		}
-	});
+	const code = req.query.code;
+
+	if(code) {
+		usersDB.getByCode(code)
+			.then(user => {
+				res.render('index', {
+					show: {
+						createAccount: false,
+						user
+					}
+				})
+			})
+			.catch(err => res.status(500).send(err));
+	} else {
+		res.render('index', {
+			show: {
+				createAccount: true
+			}
+		});
+	}
 });
 
 router.get('/create-account', (req, res) => {

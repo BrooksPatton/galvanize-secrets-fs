@@ -7,7 +7,7 @@
 * [x] As a returning user, when I click on the login link I am taken to the create account and login page.
 * [x] As a first time visitor I can see the main title of the web app.
 * [x] As a first time visitor I can see a message about needing to login or create an account to continue.
-* [ ] As a new user I can create an account.
+* [x] As a new user I can create an account.
 * [ ] As a new user I can log out.
 * [ ] As a returning user I can log in with the code provided to me.
 * [ ] As a user I can see all of my secrets.
