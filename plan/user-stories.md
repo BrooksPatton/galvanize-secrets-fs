@@ -4,7 +4,7 @@
 * [x] As a user, when I click the logo I am taken back to the main page.
 * [x] As a first time visitor, I can see the create account link.
 * [x] As a first time visitor, when I click on the create account link I am  taken to the create account and login page.
-* [ ] As a returning user, when I click on the login link I am taken to the create account and login page.
+* [x] As a returning user, when I click on the login link I am taken to the create account and login page.
 * [ ] As a first time visitor I can see the main title of the web app.
 * [ ] As a first time visitor I can see a message about needing to login or create an account to continue.
 * [ ] As a new user I can create an account.
