@@ -14,7 +14,7 @@ router.get('/', (req, res) => {
 				return secretsDB.getByUser(user.id)
 			})
 			.then(secrets => {
-				console.log('secrets:', secrets);
+				console.log(secrets);
 				res.render('index', {
 					show: {
 						createAccount: false,
