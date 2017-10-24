@@ -12,8 +12,9 @@ router.get('/', (req, res) => {
 				res.render('index', {
 					show: {
 						createAccount: false,
-						user
-					}
+						logout: true
+					},
+					user
 				})
 			})
 			.catch(err => res.status(500).send(err));
