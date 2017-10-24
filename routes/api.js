@@ -17,4 +17,16 @@ router.post('/users', (req, res, next) => {
 		.catch(err => next(err));
 });
 
+router.post('/users/login', (req, res, next) => {
+	const code = req.body.code;
+
+	usersDB.getByCode(code)
+		.then(user => {
+			if(user) return res.redirect(`/?code=${code}`);
+
+			return res.redirect('/');
+		})
+		.catch(err => res.status(500).send(err.message));
+});
+
 module.exports = router;

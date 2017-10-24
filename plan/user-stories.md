@@ -9,7 +9,7 @@
 * [x] As a first time visitor I can see a message about needing to login or create an account to continue.
 * [x] As a new user I can create an account.
 * [x] As a new user I can log out.
-* [ ] As a returning user I can log in with the code provided to me.
+* [x] As a returning user I can log in with the code provided to me.
 * [ ] As a user I can see all of my secrets.
 * [ ] As a user I can see that I created the secret.
 * [ ] As a user I can see the secrets that I know about.
