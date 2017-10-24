@@ -10,8 +10,8 @@
 * [x] As a new user I can create an account.
 * [x] As a new user I can log out.
 * [x] As a returning user I can log in with the code provided to me.
-* [ ] As a user I can see all of my secrets.
-* [ ] As a user I can see that I created the secret.
+* [x] As a user I can see all of my secrets.
+* [x] As a user I can see that I created the secret.
 * [ ] As a user I can see the secrets that I know about.
 * [ ] As a user I can create a secret.
 * [ ] As a user I can create a secret that other users know about.

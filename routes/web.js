@@ -1,5 +1,6 @@
 const express = require('express');
 const usersDB = require('../db/users');
+const secretsDB = require('../db/secrets');
 
 const router = express.Router();
 
@@ -9,12 +10,19 @@ router.get('/', (req, res) => {
 	if(code) {
 		usersDB.getByCode(code)
 			.then(user => {
+				req.user = user;
+				return secretsDB.getByUser(user.id)
+			})
+			.then(secrets => {
+				console.log('secrets:', secrets);
 				res.render('index', {
 					show: {
 						createAccount: false,
-						logout: true
+						logout: true,
+						secrets: true
 					},
-					user
+					user: req.user,
+					secrets
 				})
 			})
 			.catch(err => res.status(500).send(err));
