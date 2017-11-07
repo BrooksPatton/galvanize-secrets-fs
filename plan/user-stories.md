@@ -12,6 +12,6 @@
 * [x] As a returning user I can log in with the code provided to me.
 * [x] As a user I can see all of my secrets.
 * [x] As a user I can see that I created the secret.
-* [ ] As a user I can see the secrets that I know about.
+* [x] As a user I can see the secrets that I know about.
 * [ ] As a user I can create a secret.
 * [ ] As a user I can create a secret that other users know about.
