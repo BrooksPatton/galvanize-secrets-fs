@@ -33,7 +33,12 @@ function getByCode(code) {
 	return db('user').select().where('code', code).first();
 }
 
+function getAllBut(id) {
+	return db('user').select().where('id', '!=', id);
+}
+
 module.exports = {
 	create,
-	getByCode
+	getByCode,
+	getAllBut
 };

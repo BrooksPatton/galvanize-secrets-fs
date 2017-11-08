@@ -12,6 +12,7 @@
       <a href="/create-account" class="btn btn-info">Login</a>
     {{/if}}
     {{#if show.logout}}
+      <a href="/create-secret?code={{user.code}}" class="btn btn-warning mr-1">Add Secret</a>
       <button type="button" name="log-out" class="btn btn-danger" id="log-out">Log Out</button>
     {{/if}}
   </div>

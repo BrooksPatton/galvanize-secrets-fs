@@ -1,7 +1,7 @@
 const db = require('./connection');
 
 function getByUser(id) {
-	return db('user_secret').select().join('secret', 'secret_id', '=', 'secret.id').join('user', 'user_id', '=', 'user.id')
+	return db('user_secret').select().join('secret', 'secret_id', '=', 'secret.id').join('user', 'user_id', '=', 'user.id').orderBy('secret.id')
 		.then(allSecrets => {
 			const result = {
 				mySecrets: [],
@@ -21,18 +21,46 @@ function getByUser(id) {
 				}
 			});
 
-			for(let i = result.mySecrets.length - 1; i >= 0; i = i - 1) {
-				for(let j = 0; j < result.otherSecrets.length; j = j + 1) {
-					if(result.mySecrets[i].secret_id === result.otherSecrets[j].secret_id) {
-						result.mySecrets.splice(i, 1);
+			result.mySecrets = result.mySecrets.filter((secret) => {
+				for(let i = 0; i < result.otherSecrets.length; i = i + 1) {
+					const current = result.otherSecrets[i];
+
+					if(secret.secret_id === current.secret_id) {
+						if(secret.id < current.id) {
+							return true;
+						} else {
+							return false;
+						}
 					}
 				}
-			}
+			});
+
+			result.otherSecrets = result.otherSecrets.filter(secret => {
+				for(let i = 0; i < result.mySecrets.length; i = i + 1) {
+					const current = result.mySecrets[i];
+
+					if(secret.secret_id === current.secret_id) {
+						if(secret.id < current.id) {
+							return true;
+						} else {
+							return false;
+						}
+					}
+				}
+			})
+
+			console.log(result);
 
 			return result;
 		})
 }
 
+function add(secret) {
+	return db('secret').insert(secret).returning('id')
+		.then(id => id[0]);
+}
+
 module.exports = {
-	getByUser
+	getByUser,
+	add
 };

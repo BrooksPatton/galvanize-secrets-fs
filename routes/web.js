@@ -24,7 +24,11 @@ router.get('/', (req, res) => {
 					secrets
 				})
 			})
-			.catch(err => res.status(500).send(err));
+			.catch(err => {
+				console.log(err);
+				console.log(err.message);
+				res.send(err);
+			});
 	} else {
 		res.render('index', {
 			show: {
@@ -41,5 +45,32 @@ router.get('/create-account', (req, res) => {
 		}
 	});
 });
+
+router.get('/create-secret', (req, res) => {
+	const code = req.query.code;
+
+	if(code) {
+		usersDB.getByCode(code)
+			.then(user => {
+				req.user = user;
+			})
+			.then(() => {
+				return usersDB.getAllBut(req.user.id);
+			})
+			.then(users => {
+				res.render('add-secret', {
+					show: {
+						createAccount: false,
+						logout: true
+					},
+					user: req.user,
+					users
+				});
+			})
+			.catch(err => res.status(500).send(err));
+	} else {
+		res.redirect('/');
+	}
+})
 
 module.exports = router;
